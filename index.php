@@ -1,3 +1,3 @@
 <?php
-	echo 'good afternoon World!';
+	echo 'good World!';
 ?>
