@@ -15,7 +15,7 @@ spec:
         app: vote-ui
     spec:
       containers:
-        - image: quay.io/helloworld/sumit-hello:latest
+        - image: quay.io/helloworld/vote-ui:latest
           imagePullPolicy: Always
           name: vote-ui
           ports:
