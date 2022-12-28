@@ -1,3 +1,3 @@
 <?php
-	echo 'good World! Hii ';
+	echo 'shut ur Mouth and sit wht is ur problem ';
 ?>
