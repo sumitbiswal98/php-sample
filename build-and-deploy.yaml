@@ -3,6 +3,8 @@ kind: Pipeline
 metadata:
   name: build-and-deploy
 spec:
+  workspaces:
+  - name: shared-workspace
   params:
   - name: deployment-name
     type: string
@@ -13,7 +15,7 @@ spec:
   - name: git-revision
     type: string
     description: revision to be used from repo of the code for deployment
-    default: main
+    default: "release-tech-preview-2"
   - name: IMAGE
     type: string
     description: image to be build from the code
@@ -22,6 +24,9 @@ spec:
     taskRef:
       name: git-clone
       kind: ClusterTask
+    workspaces:
+    - name: output
+      workspace: shared-workspace
     params:
     - name: url
       value: $(params.git-url)
@@ -36,14 +41,21 @@ spec:
       name: s2i-php
       kind: ClusterTask
     params:
+    - name: TLSVERIFY
+      value: "false"
     - name: IMAGE
       value: $(params.IMAGE)
+    workspaces:
+    - name: source
+      workspace: shared-workspace
     runAfter:
     - fetch-repository
   - name: apply-manifests
     taskRef:
       name: apply-manifests
-
+    workspaces:
+    - name: source
+      workspace: shared-workspace
     runAfter:
     - build-image
   - name: update-deployment
