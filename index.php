@@ -1,3 +1,3 @@
 <?php
-	echo 'shut ur Mouth and sit wht is ur problem';
+	echo 'shut ur Mouth and sit wht is ur problem ';
 ?>
