@@ -1,8 +1,10 @@
 apiVersion: triggers.tekton.dev/v1alpha1
-kind: EventListener
+kind: Trigger
 metadata:
-  name: vote-app
+  name: vote-trigger
 spec:
   serviceAccountName: pipeline
-  triggers:
-    - triggerRef: vote-trigger
+  bindings:
+    - ref: vote-app
+  template:
+     name: vote-app
