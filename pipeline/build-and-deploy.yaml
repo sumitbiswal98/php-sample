@@ -38,7 +38,7 @@ spec:
       value: $(params.git-revision)
   - name: build-image
     taskRef:
-      name: buildah
+      name: s2i-php
       kind: ClusterTask
     params:
     - name: IMAGE
