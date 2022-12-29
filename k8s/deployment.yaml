@@ -15,7 +15,7 @@ spec:
         app: vote-ui
     spec:
       containers:
-        - image: quay.io/php-sample/vote-ui:latest
+        - image: quay.io/tek/vote-ui:latest
           imagePullPolicy: Always
           name: vote-ui
           ports:
