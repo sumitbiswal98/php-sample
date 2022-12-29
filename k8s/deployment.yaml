@@ -2,22 +2,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: vote-ui
-  name: vote-ui
+    app: php-sample
+  name: php-sample
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: vote-ui
+      app: php-sample
   template:
     metadata:
       labels:
-        app: vote-ui
+        app: php-sample
     spec:
       containers:
-        - image: quay.io/helloworld/vote-ui:latest
+        - image: quay.io/helloworld/php-sample:latest
           imagePullPolicy: Always
-          name: vote-ui
+          name: php-sample
           ports:
             - containerPort: 8080
               protocol: TCP
