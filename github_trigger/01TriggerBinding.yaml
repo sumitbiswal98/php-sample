@@ -7,6 +7,6 @@ spec:
   - name: git-repo-url
     value: $(body.repository.url)
   - name: git-repo-name
-    value: $(body.repository.name)
+    value: vote-ui
   - name: git-revision
     value: $(body.head_commit.id)
